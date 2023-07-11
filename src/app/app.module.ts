@@ -3,14 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AccountComponent } from './account/account.component';
+import { LoginComponent } from './account/login/login.component';
+import { RegisterComponent } from './account/register/register.component';
+import { UsersComponent } from './users/users.component';
+import { AddComponent } from './users/add/add.component';
+import { HeaderComponent } from './layout/header/header.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './layout/header/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccountComponent,
+    LoginComponent,
+    RegisterComponent,
+    UsersComponent,
+    AddComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

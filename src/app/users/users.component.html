@@ -1,0 +1,22 @@
+<div class="user-container">
+  <h2>Users</h2>
+
+  <button class="btn btn-success mb-4" routerLink="add">Add User</button>
+  <div class="row">
+    <span class="col-3">First Name</span>
+    <span class="col-3">Last Name</span>
+    <span class="col-3">Username</span>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item row" *ngFor="let user of users">
+      <span class="col-3 item-property">{{user.firstName}}</span>
+      <span class="col-3 item-property">{{user.lastName}}</span>
+      <span class="col-3 item-property">{{user.username}}</span>
+      <span class="col-3 item-property">
+        <button class="btn btn-info me-2">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+      </span>
+    </li>
+  </ul>
+
+</div>

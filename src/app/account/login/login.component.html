@@ -1,0 +1,14 @@
+<form class="login-form" (ngSubmit)="onSubmit()">
+  <h4>Login</h4>
+  <hr>
+  <div class="mb-3">
+    <label class="form-label">Username</label>
+    <input [(ngModel)]="username" name="username" type="text" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input [(ngModel)]="password" name="password" type="password" class="form-control">
+  </div>
+  <button style="margin-right: 10px;" type="submit" class="btn btn-primary">Submit</button>
+  <a routerLink="/account/register">Register</a>
+</form>
