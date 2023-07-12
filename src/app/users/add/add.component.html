@@ -18,12 +18,17 @@
         <input name="username" formControlName="username" type="text" class="form-control" aria-describedby="emailHelp">
       </div>
       <div class="mb-3 col-6">
-        <label class="form-label">Password</label>
-        <input name="password" formControlName="password" type="password" class="form-control">
+        <div *ngIf="createUser.get('password')?.touched && createUser.get('password')?.invalid"
+        class="alert-msg"
+        >Password must at least 8 chars</div>
+        <div>
+          <label class="form-label">Password</label>
+          <input name="password" formControlName="password" type="password" class="form-control">
+        </div>
       </div>
     </div>
 
-    <button style="margin-right: 10px;" type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="!createUser.valid" style="margin-right: 10px;" type="submit" class="btn btn-primary">Submit</button>
     <a routerLink="/users">Cancel</a>
   </form>
 </div>

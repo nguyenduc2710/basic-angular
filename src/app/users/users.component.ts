@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user.class';
 import { AccountsService } from '../services/accounts.services';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
@@ -15,5 +16,7 @@ export class UsersComponent implements OnInit {
     this.users = this.accountService.getUser();
   }
 
-
+  onEditUser(user: User){
+    // this.accountService.currentEditing = user;
+  }
 }

@@ -7,6 +7,7 @@ import { UsersComponent } from './users/users.component';
 import { AddComponent } from './users/add/add.component';
 import { HomeComponent } from './layout/header/home.component';
 import { NotFoundComponent } from './not-found.component';
+import { EditComponent } from './users/edit/edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'account/login', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'users', component: UsersComponent },
   { path: 'users/add', component: AddComponent },
+  { path: 'users/edit', component: EditComponent },
 
   { path: '**', component: NotFoundComponent }
 ];

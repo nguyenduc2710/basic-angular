@@ -1,0 +1,34 @@
+<form class="create-user" [formGroup]="editUser" (ngSubmit)="onEditUser()">
+  <div class="row">
+    <div class="mb-3 col-6">
+      <label class="form-label">First Name</label>
+      <input name="firstName" [value]="currentUser.firstName" formControlName="firstName" type="text" class="form-control" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3 col-6">
+      <label class="form-label">Last Name</label>
+      <input name="lastName" [value]="currentUser.lastName" formControlName="lastName" type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mb-3 col-6">
+      <div *ngIf="editUser.get('password')?.touched && editUser.get('password')?.invalid" class="alert-msg">Password
+        must at least 8 chars</div>
+      <div>
+        <label class="form-label">Password</label>
+        <input name="password" formControlName="password" type="password" class="form-control">
+      </div>
+    </div>
+    <div class="mb-3 col-6">
+      <div *ngIf="editUser.get('repeatPassword')?.touched && editUser.get('repeatPassword')?.invalid" class="alert-msg">
+        Repeat password must at least 8 chars</div>
+      <div>
+        <label class="form-label">Repeat Password</label>
+        <input name="repeatPassword" formControlName="repeatPassword" type="password" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <button [disabled]="!editUser.valid" style="margin-right: 10px;" type="submit" class="btn btn-primary">Submit</button>
+  <a routerLink="/users">Cancel</a>
+</form>

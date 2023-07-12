@@ -7,6 +7,13 @@ import { BehaviorSubject } from "rxjs";
 export class AccountsService {
   isAuth = false;
   isAuth$ = new BehaviorSubject<boolean>(false);
+  private currentEditing: User = {
+    'firstName': '',
+    'lastName': '',
+    'username': '',
+    'password': '',
+  };
+
   private accounts: User[] = [
     new User(
       'Nguyen Van',
@@ -38,6 +45,24 @@ export class AccountsService {
     password: string) {
     this.accounts.push(new User(firstName, lastName, username, password));
     console.log("Create success");
+  }
+
+  onEditUser(firstName: string,
+    lastName: string,
+    username: string,
+    password: string) {
+    for (let i = 0; i < this.accounts.length; i++) {
+      if(this.accounts[i].username === username){
+        this.accounts[i].firstName = firstName;
+        this.accounts[i].lastName = lastName;
+        this.accounts[i].password = password;
+        console.log("Profile updated!");
+      }
+    }
+  }
+
+  getCurrentUser(){
+    return this.currentEditing;
   }
 
   authenUser(username: string, password: string): boolean {

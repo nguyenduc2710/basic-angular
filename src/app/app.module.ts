@@ -12,6 +12,7 @@ import { HeaderComponent } from './layout/header/header.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './layout/header/home.component';
+import { EditComponent } from './users/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './layout/header/home.component';
     UsersComponent,
     AddComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

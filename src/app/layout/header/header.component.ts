@@ -10,7 +10,7 @@ import { AccountsService } from 'src/app/services/accounts.services';
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a routerLink="/" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a style="cursor: pointer;" (click)="navigateHome()" class="nav-link px-2 text-secondary">Home</a></li>
           <li *ngIf="isAuthen">
             <a routerLink="/users" class="nav-link px-2 text-white">Users</a>
           </li>
@@ -43,6 +43,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout(){
     this.accountService.logout();
+  }
+
+  navigateHome(){
+    if(this.accountService.isAuth){
+      this.router.navigate(['/home'])
+    }else{
+      this.router.navigate(['/account/login'])
+    }
   }
 
   ngOnDestroy(): void {
